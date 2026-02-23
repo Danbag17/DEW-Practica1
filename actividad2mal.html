@@ -1,19 +1,18 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html lang="es">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta charset="UTF-8">
 <meta name="GENERATOR" content="Microsoft FrontPage 5.0">
 <title>Practica de Lucene</title>
 <style type="text/css">
-<!--
+
 .Estilo1 {color: #0000FF}
 .Estilo2 {
 	font-size: 18px;
 	font-weight: bold;
 }
 .Estilo3 {color: #990000}
--->
+
 </style>
 </head>
 
@@ -21,33 +20,33 @@
 <blockquote><strong>Nota:</strong> este documento no contiene instrucciones a realizar. Solo se trata de un texto que no respeta el est&aacute;ndar HTML actual, y que debe ser <em>reparado</em> para mantener el aspecto original sin producir quejas del validador <em>(actualmente 3 avisos y 34 errores)</em> cuando lo comprueba siguiendo la sintaxis de HTML5.</blockquote>
 <h1>Programaci&oacute;n B&aacute;sica en el Servidor: Pr&aacute;ctica de Lucene</h1>
 <p>Se pretende introducir al alumno en el manejo de la <a href="http://lucene.apache.org/java/docs/">biblioteca Lucene</a> (<a href="lucene-2.9.4.tar.gz">descargar completo</a>, o solo la <a href="lucene-core-2.9.4.jar">biblioteca</a>), totalmente hecha en Java para la indexaci&oacute;n y b&uacute;squeda de documentos.</p>
-<p>Como documentaci&oacute;n de consulta, el alumno tiene disponible el <a href="http://www.darksleep.com/lucene/">Tutorial de Lucene</a> as&iacute; como el <a href="http://lucene.apache.org/java/2_9_4/api/all/index.html">API online</a> y la <a href="http://lucene.apache.org/java/2_9_4/">documentaci&oacute;n</a> de Lucene 2.9.4. <br>
+<p>Como documentaci&oacute;n de consulta, el alumno tiene disponible el <a href="http://www.darksleep.com/lucene/">Tutorial de Lucene</a> as&iacute; como el <a href="http://lucene.apache.org/java/2_9_4/api/all/index.html">API online</a> y la <a href="http://lucene.apache.org/java/2_9_4/">documentaci&oacute;n</a> de Lucene 2.9.4. <br></br> </p> 
 
 <p>Otra documentaci&oacute;n y art&iacute;culos sobre Lucene que pueden ser de ayuda est&aacute;n disponibles en:</p>
 <ul>
-  <li> <a href="http://today.java.net/pub/a/today/2003/11/07/QueryParserRules.html">QueryParser Rules</a> <br>
+  <li> <a href="http://today.java.net/pub/a/today/2003/11/07/QueryParserRules.html">QueryParser Rules</a> <br> </br>
   - java.net, November 2003 </li>
-  <li> <a href="http://builder.com.com/5100-6389-5054799.html">Give your Web site its own search engine using Lucene</a> <br>
+  <li> <a href="http://builder.com.com/5100-6389-5054799.html">Give your Web site its own search engine using Lucene</a> <br> </br>
   - Builder.com, July 2003 </li>
-  <li> <a href="http://today.java.net/pub/a/today/2003/07/30/LuceneIntro.html">Lucene Intro</a> <br>
+  <li> <a href="http://today.java.net/pub/a/today/2003/07/30/LuceneIntro.html">Lucene Intro</a> <br></br>
   - java.net, July 2004 </li>
   <li> <a href="http://www-106.ibm.com/developerworks/library/j-lucene/">Parsing, indexing, and searching XML with Digester and Lucene</a> <br>
   - IBM developerWorks, June 2003 </li>
-  <li> <a href="http://www.onjava.com/pub/a/onjava/2003/03/05/lucene.html">Advanced Text Indexing with Lucene</a> <br>
+  <li> <a href="http://www.onjava.com/pub/a/onjava/2003/03/05/lucene.html">Advanced Text Indexing with Lucene</a> <br></br>
   - Onjava.com, March 2003 </li>
-  <li> <a href="http://www.onjava.com/pub/a/onjava/2003/01/15/lucene.html">Introduction to Text Indexing with Apache Apache Lucene</a> <br>
+  <li> <a href="http://www.onjava.com/pub/a/onjava/2003/01/15/lucene.html">Introduction to Text Indexing with Apache Apache Lucene</a> <br></br>
   - Onjava.com, January 2003 </li>
-  <li><a href="http://www.javaworld.com/javaworld/jw-09-2000/jw-0915-lucene.html">The Lucene search engine Powerful flexible and free</a> <br>
+  <li><a href="http://www.javaworld.com/javaworld/jw-09-2000/jw-0915-lucene.html">The Lucene search engine Powerful flexible and free</a> <br></br>
   - JavaWorld, September 2000</li>
 </ul>
 <hr>
 <p><strong>Primera parte de la pr&aacute;ctica: </strong></p>
 <p>Con el fin de familiarizarse con la biblioteca Lucene, en esta primera parte, se le proporciona al alumno un ejemplo resuelto de indexaci&oacute;n y b&uacute;squeda de documentos. El alumno tendr&aacute; que crear un nuevo proyecto 'Java' en el entorno Eclipse e introducir las siguientes clases Java:</p>
 <ol>
-  <li><a href="Indexer.java">Indexer.java</a></li>
-  Clase Java que indexa un conjunto de ficheros. El &iacute;ndice es almacenado en un directorio especificado por el usuario. Se recomienda que para este prop&oacute;sito se utilice <tt>/tmp</tt>, evitando problemas de cuotas en disco.
-  <li><a href="Searcher.java">Searcher.java</a></li>
-  Clase Java que busca documentos en un &iacute;ndice (hay que indicarle d&oacute;nde lo ha creado Indexer) de acuerdo a alguna consulta especificada por el usuario.
+  <li><a href="Indexer.java">Indexer.java</a>
+  Clase Java que indexa un conjunto de ficheros. El &iacute;ndice es almacenado en un directorio especificado por el usuario. Se recomienda que para este prop&oacute;sito se utilice <tt>/tmp</tt>, evitando problemas de cuotas en disco.</li>
+  <li><a href="Searcher.java">Searcher.java</a>
+  Clase Java que busca documentos en un &iacute;ndice (hay que indicarle d&oacute;nde lo ha creado Indexer) de acuerdo a alguna consulta especificada por el usuario.</li>
 </ol>
 <p>Utilizando ambas clases, crear un &iacute;ndice y realizar b&uacute;squedas para comprender el funcionamiento de ambas clases.</p>
 <ul><li>Sugerencia: indexar los documentos <tt>".txt"</tt> del directorio <tt>/usr/share/doc</tt>, que contiene informaci&oacute;n de los programas instalados.</li>
@@ -62,13 +61,13 @@
 <p>Los pasos a seguir son los siguientes:</p>
 <ol>
   <li>Crear un &iacute;ndice del directorio que contiene los documentos a indexar.
-<ul><li><strong>Se indexar&aacute;n los documentos con extensi&oacute;n <tt>.html</tt></strong></li>
+<ul><li><strong>Se indexar&aacute;n los documentos con extensi&oacute;n <tt>.html</tt></strong></li></ul>
 <ul>
   <li>Para indexar documentos HTML es conveniente utilizar la clase HTMLDocument de la biblioteca <a href=lucene-demos-2.9.4.jar>lucene-demos.jar</a>.
     <ul>
       <li>Esta biblioteca permite parsear un documento HTML adecuadamente eliminando etiquetas propias del lenguaje HTML (p.e., el texto &quot;Polit&amp;eacute;cnica&quot; se indexa como &quot;Polit&eacute;cnica&quot;).</li>
     </ul>
-<img width=360 src="lucene_demo.png">
+<img  width=360 src="lucene_demo.png"> </img>
   </li>
   </ul>
 </li>
